@@ -206,13 +206,28 @@ a = [2010,
 1939,
 2005]
 
+nValues = 3
+
 for n in range(len(a)):
     b = len(a) - n
     for m in range(b):
-        value = a[n] + a[len(a) - m - 1]
+        if nValues == 3:
+            c = len(a) - n - m
+            for l in range(c):
+                value = a[n] + a[len(a) - m - 1] + a[len(a) - m - l - 1]
+                
+                if value == 2020:
+                    x = a[n]
+                    y = a[len(a) - m - 1]
+                    z = a[len(a) - m - l - 1]
+                    ans = x * y * z
+                    break
+        else:
+            value = a[n] + a[len(a) - m - 1]
         
-        if value == 2020:
-            x = (a[n])
-            y = (a[len(a) - m - 1])
-            ans = x * y
+            if value == 2020:
+                x = (a[n])
+                y = (a[len(a) - m - 1])
+                ans = x * y
+                break
         
